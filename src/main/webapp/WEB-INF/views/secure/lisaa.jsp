@@ -21,7 +21,7 @@
     <script src="../resources/js/bootstrap.min.js"></script>
     <script src="../resources/js/generic.js"></script>
 <body>
-<p><a href="../j_spring_security_logout" style="float: right;"> Kirjaudu ulos</a></p>
+<p><a href="../j_spring_security_logout" style="float: right;"><button class="button">Kirjaudu ulos</button></a></p>
 <h3>Sisäänkirjautuneena: <sec:authentication property="principal.username"/></h3>
 		
 				<form:form modelAttribute="ottelu" method="post">

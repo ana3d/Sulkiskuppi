@@ -61,15 +61,9 @@ public class SecureController {
 		this.pidao = pidao;
 	}
 	
-	
-	
-	
-
 	@RequestMapping(value = "/main", method = RequestMethod.GET)
 	public String paasivu(@ModelAttribute(value="pelaaja") @Valid Pelaaja pelaaja, BindingResult result, Model model) {
-		
-		
-		
+
 		List<Pelaaja> pelaajat = pdao.haeKaikki();
 		List<Ottelu> ottelut = odao.haeKaikki();
 		List<Piste> pisteet = pidao.haePisteLista();
@@ -91,21 +85,20 @@ public class SecureController {
 	@RequestMapping(value = "/lisaaUusiPelaaja", method = RequestMethod.POST)
 	public String lisaaPelaaja( @ModelAttribute(value="pelaaja") @Valid Pelaaja pelaaja, BindingResult result, Model model) {
 		
+		List<Pelaaja> pelaajat = pdao.haeKaikki();
+		List<Ottelu> ottelut = odao.haeKaikki();
+		List<Piste> pisteet = pidao.haePisteLista();
+		model.addAttribute("pelaajat", pelaajat);
+		model.addAttribute("ottelut", ottelut);
+		model.addAttribute("pisteet", pisteet);
+		logger.info("Haettu kaikki pelaajat & ottelut tietokannasta");
+		
 		
 		if (result.hasErrors()) {
-			
 			logger.info("Joku kentt‰ ei mennyt l‰pi validoinnista");
 			return "secure/lisaaUusiPelaaja";
 		} else {
 			pdao.talleta(pelaaja);
-			
-			List<Pelaaja> pelaajat = pdao.haeKaikki();
-			List<Ottelu> ottelut = odao.haeKaikki();
-			List<Piste> pisteet = pidao.haePisteLista();
-			model.addAttribute("pelaajat", pelaajat);
-			model.addAttribute("ottelut", ottelut);
-			model.addAttribute("pisteet", pisteet);
-			logger.info("Haettu kaikki pelaajat & ottelut tietokannasta");
 			logger.info("Lis‰‰ uusi paino nappia on painettu. Tuupataan tietokantaan");
 			return "secure/main";
 		}
@@ -126,24 +119,21 @@ public class SecureController {
 	
 	@RequestMapping(value="/lisaa", method=RequestMethod.POST)
 	public String tallennaOttelu( @ModelAttribute(value="ottelu") @Valid Ottelu ottelu, BindingResult result, Model model) {
-				
-		if (result.hasErrors()) {
-			List<Pelaaja> pelaajat = pdao.haeKaikki();
-			List<Ottelu> ottelut = odao.haeKaikki();
-			model.addAttribute("pelaajat", pelaajat);
-			model.addAttribute("ottelut", ottelut);
-			logger.info("Haettu kaikki pelaajat & ottelut tietokannasta");
+			
+		List<Pelaaja> pelaajat = pdao.haeKaikki();
+		List<Ottelu> ottelut = odao.haeKaikki();
+		List<Piste> pisteet = pidao.haePisteLista();
+		model.addAttribute("pelaajat", pelaajat);
+		model.addAttribute("ottelut", ottelut);
+		model.addAttribute("pisteet", pisteet);
+		logger.info("Haettu kaikki pelaajat & ottelut tietokannasta");
+		
+		
+		if (result.hasErrors()) {			
 			logger.info("Joku kentt‰ ei mennyt l‰pi validoinnista");
 			return "secure/lisaa";
 		} else {
-			odao.talleta(ottelu);
-			List<Pelaaja> pelaajat = pdao.haeKaikki();
-			List<Ottelu> ottelut = odao.haeKaikki();
-			List<Piste> pisteet = pidao.haePisteLista();
-			model.addAttribute("pelaajat", pelaajat);
-			model.addAttribute("ottelut", ottelut);
-			model.addAttribute("pisteet", pisteet);
-			logger.info("Haettu kaikki pelaajat & ottelut tietokannasta");
+			odao.talleta(ottelu);			
 			logger.info("Lis‰‰ uusi paino nappia on painettu. Tuupataan tietokantaan");
 			return "secure/main";
 		}

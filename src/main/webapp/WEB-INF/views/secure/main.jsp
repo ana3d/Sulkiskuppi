@@ -14,74 +14,41 @@
 	href="../resources/main.css">
 </head>
 <body>
-<p><a href="../j_spring_security_logout" style="float: right;"> Kirjaudu ulos</a></p>
-<h3>Sis‰‰nkirjautuneena: <sec:authentication property="principal.username"/></h3>
 
-
+<a href="lisaaUusiPelaaja"><button class="button">Lis‰‰ pelaaja</button></a>
+<a href="lisaa"><button class="button">Lis‰‰ uusi ottelu</button></a>
+<a href="../j_spring_security_logout" style="float: right;"><button class="button">Kirjaudu ulos</button></a><br>
+<span style="float: right;">Sis‰‰nkirjautuneena: <sec:authentication property="principal.username"/></span>
 <sec:authorize access="hasRole('ROLE_ADMIN')">
-<p><a href="admin/tools">Admin tools</a></p>
+<%-- T‰h‰n voi implementtaa vaikka adminh‰ss‰k‰t --%>
 </sec:authorize>
-
 <div class="wrap">
-
-	<div class="container2">
-
-	<div class="tableDiv">
-		<table class="printTable">
-				<tr>
-				<th>Pelaajalistaus</th>
-				</tr>
-			<c:forEach var="data" items="${pelaajat}">
-				<tr>
-					<td><span>${data.name}</span></td>
-				</tr>
-			</c:forEach>
-		</table>
+	<div class="container1">
+				<div class="card">
+					<div class="cardHeader">Pelaajalistaus</div>
+						<c:forEach var="data" items="${pelaajat}">
+							<div class="cardData">${data.name}</div>
+						</c:forEach>
+				</div>
+				
+				<div class="card">
+					<div class="cardHeader">Pistelistaus</div>
+						<c:forEach var="data" items="${pisteet}">
+							<div class="cardData">${data.pisteet} ${data.name}</div>
+						</c:forEach>
+					</div>			
 	</div>
-
-
-	<div class="tableDiv">
-		
-		<fieldset>
-		<legend>Lis‰‰ tietoja</legend>
-		<p><a href="lisaaUusiPelaaja"><button class="button">Lis‰‰ pelaaja</button></a></p>
-		<p><a href="lisaa"><button class="button">Lis‰‰ uusi ottelu</button></a></p>
-		</fieldset>
-	</div>		
-		
-		
-		
-
-	
-		<div class="tableDiv">
-		
-			<table class="printTable">
-				<tr>
-					<th colspan="2"> Pistelistaus</th>
-				</tr>
-				<c:forEach var="data" items="${pisteet}">
-				<tr>
-					<td><span>${data.pisteet}</span></td>
-					<td><span>${data.name}</span></td>
-				</tr>
-				</c:forEach>			
-			</table>
-		</div>
-	
-	</div>
-		
-		<div class="container1">	
+	<div class="container1">
 			<c:forEach var="o_data" items="${ottelut}" varStatus="status">
-				<div class="div"><b>
-					Ottelunro ${o_data.match_id}<br> ${o_data.pelaaja_1.name} VS ${o_data.pelaaja_2.name}<br>
-					<font color="green">Voittaja ${o_data.voittaja.name}</font><br>
-					Tulos: ${o_data.result} <b>P‰iv‰ys: ${o_data.match_date}</b>
-				</div>	
+					<div class="card">
+						<div class="cardHeader">Ottelu #${o_data.match_id} / ${o_data.match_date}</div>
+						<div class="cardData"> ${o_data.pelaaja_1.name} vs ${o_data.pelaaja_2.name} </div>
+						<div class="cardData"> Tulos: ${o_data.result} </div>
+						<div class="cardData">Voittaja <span class="winner">${o_data.voittaja.name}</span></div>
+					</div>	
 			</c:forEach>
-		</div>		
 	</div>
-
-
+</div>		
 
 </body>
 </html>

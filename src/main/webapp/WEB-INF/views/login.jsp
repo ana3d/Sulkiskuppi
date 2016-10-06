@@ -13,7 +13,7 @@
 	<h1>KIRJAUDU SISÄÄN</h1>
 
 	<c:if test="${not empty loginerror}">
-		<p class="Error">Sisäänkirjautuminen epäonnistui. Käyttäjätunnus tai salasana on syötetty väärin.</p>
+		<p class="Error"><font color="red">Sisäänkirjautuminen epäonnistui. Käyttäjätunnus tai salasana on syötetty väärin.</font></p>
 	</c:if>
 
 	<c:if test="${not empty loggedout}">

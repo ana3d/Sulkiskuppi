@@ -15,7 +15,7 @@
 	href="../resources/main.css">
 </head>
 <body>
-<p><a href="../j_spring_security_logout" style="float: right;"> Kirjaudu ulos</a></p>
+<p><a href="../j_spring_security_logout" style="float: right;"><button class="button"> Kirjaudu ulos</button></a></p>
 <h3>Sisäänkirjautuneena: <sec:authentication property="principal.username"/></h3>
 		
 	<div class="div">
