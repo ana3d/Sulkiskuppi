@@ -37,8 +37,8 @@
 							<div class="cardData">${data.pisteet} ${data.name}</div>
 						</c:forEach>
 					</div>			
-	</div>
-	<div class="container1">
+	
+
 			<c:forEach var="o_data" items="${ottelut}" varStatus="status">
 					<div class="card">
 						<div class="cardHeader">Ottelu #${o_data.match_id} / ${o_data.match_date}</div>
@@ -47,8 +47,9 @@
 						<div class="cardData">Voittaja <span class="winner">${o_data.voittaja.name}</span></div>
 					</div>	
 			</c:forEach>
-	</div>
-</div>		
+		</div>
+</div>
+	
 
 </body>
 </html>

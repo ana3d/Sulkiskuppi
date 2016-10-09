@@ -43,10 +43,22 @@ public class OttelutDAO {
 		// päättyessä.
 		final int player_1_id = o.getPlayer_1_id();
 		final int player_2_id = o.getPlayer_2_id();
-		final int winner_id = o.getWinner_id();
+		
 		final String match_date = o.getMatch_date();
-		final String result = o.getResult();
-
+		final String result = o.getPlayer_1_score() + "-" + o.getPlayer_2_score();
+		int winner = o.getPlayer_1_id();
+		
+		
+		if (o.getPlayer_1_score() > o.getPlayer_2_score()) {
+			winner = o.getPlayer_1_id();
+		} else if ( o.getPlayer_2_score() > o.getPlayer_1_score()) {			
+			winner = o.getPlayer_2_id();
+		}
+		
+		final int winner_id = winner;
+		
+		
+		
 		// jdbc pistää generoidun id:n tänne talteen
 		KeyHolder idHolder = new GeneratedKeyHolder();
 

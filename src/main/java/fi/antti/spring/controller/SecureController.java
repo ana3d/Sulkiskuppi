@@ -133,7 +133,17 @@ public class SecureController {
 			logger.info("Joku kentt‰ ei mennyt l‰pi validoinnista");
 			return "secure/lisaa";
 		} else {
-			odao.talleta(ottelu);			
+			odao.talleta(ottelu);
+			/* haetaan viel‰ kaikki roskat uudestaan jotta saadaan p‰ivitetty n‰kym‰ mainiin */
+			pelaajat = pdao.haeKaikki();
+			ottelut = odao.haeKaikki();
+			pisteet = pidao.haePisteLista();
+			model.addAttribute("pelaajat", pelaajat);
+			model.addAttribute("ottelut", ottelut);
+			model.addAttribute("pisteet", pisteet);
+			logger.info("Haettu kaikki pelaajat & ottelut tietokannasta");
+			
+			
 			logger.info("Lis‰‰ uusi paino nappia on painettu. Tuupataan tietokantaan");
 			return "secure/main";
 		}

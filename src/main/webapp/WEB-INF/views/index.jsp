@@ -20,9 +20,9 @@
 			
 			T‰ss‰ on tehty muutamia olettamuksia johtuen lajin tuntemattomuudesta.
 			<li>
-				<ul>Sulkapallossa ei ole tasapelej‰</ul>
+				<ul>Sulkapallossa ei ole tasapelej‰, tasapelin sattuessa koti voittaa(Pelaaja 1).</ul>
 				<ul>Lasketaan vain voitot, ei erien voittoja. Voitosta saa yhden pisteen.</ul>
-				<ul>Tietojen lis‰‰minen j‰rjestelm‰‰n hoituu yhden henkilˆn puolelta</ul>
+				<ul>Tietojen lis‰‰minen j‰rjestelm‰‰n hoituu yhden k‰ytt‰j‰n toimesta puolelta</ul>
 			</li>
 			
 			<fieldset><legend>Tunnukset</legend>Testitunnareina voi k‰ytt‰‰ sulkis/sulkis</fieldset>

@@ -44,13 +44,25 @@
 				</p>
 				
 				<p>
+					<form:label	path="player_1_score"><spring:message code="ottelu.create.player_1_score" /></form:label><br/>
+					<form:input path="player_1_score" cssErrorClass="VirheellinenKentta"/> <br>
+					<form:errors path="player_1_score" cssClass="Virheteksti"/>		
+				</p>
+				
+				<p>
 					<form:label	path="player_2_id"><spring:message code="ottelu.create.player_2" /></form:label><br/>
 					<select name="player_2_id">
 						<c:forEach var="data" items="${pelaajat}">
-							<option value=${data.id} >${data.name}</option>
+							<option value=${data.id}>${data.name}</option>
 						</c:forEach>
 					</select>
 					<form:errors path="player_2_id" cssClass="Virheteksti"/>		
+				</p>
+				
+				<p>
+					<form:label	path="player_2_score"><spring:message code="ottelu.create.player_2_score" /></form:label><br/>
+					<form:input path="player_2_score" cssErrorClass="VirheellinenKentta"/> <br>
+					<form:errors path="player_2_score" cssClass="Virheteksti"/>		
 				</p>
 				
 				<p>
@@ -59,6 +71,11 @@
 					<form:errors path="match_date" cssClass="Virheteksti"/>		
 				</p>
 				
+
+				
+				
+				
+<%-- 				
 				<p>
 					<form:label	path="result"><spring:message code="ottelu.create.result" /></form:label><br/>
 					<form:input path="result" cssErrorClass="VirheellinenKentta"/> <br>
@@ -74,7 +91,7 @@
 					</select>
 					<form:errors path="winner_id" cssClass="Virheteksti"/>		
 				</p>
-				
+--%>				
 				
 
 

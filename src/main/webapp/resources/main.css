@@ -20,6 +20,7 @@ body {
 
 .card {
 	
+	display: inline-block;
 	border: 1px solid black;
 	width: 200px;
 	margin: 10px;
@@ -110,39 +111,4 @@ body {
 	font-size: medium;
 }
 
-table {
-	color: #333;
-	font-family: Helvetica, Arial, sans-serif;
-	border-collapse: collapse;
-	border-spacing: 0;
-	border: 1px solid black;
-}
 
-table td, th {
-	border: 1px solid transparent;
-	height: 30px;
-	transition: all 0.3s;
-}
-
-table th {
-	background: #DFDFDF;
-	font-weight: bold;
-}
-
-table td {
-	background: #FAFAFA;
-	text-align: center;
-}
-
-table tr:nth-child(even) td {
-	background: #F1F1F1;
-}
-
-table tr:nth-child(odd) td {
-	background: #FEFEFE;
-}
-
-table tr td:hover {
-	background: #666;
-	color: #FFF;
-}
