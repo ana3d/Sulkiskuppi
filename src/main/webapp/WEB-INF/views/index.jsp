@@ -9,7 +9,7 @@
 <link rel="stylesheet" type="text/css" href="resources/main.css">
 <body>
 
-	<h1>Harjoitus 7: Työtunnit</h1>
+	<h1>Harjoitus 7: Sulkiskuppi</h1>
 	<div id="tableDiv">
 
 		<h3>Toiminta</h3>
